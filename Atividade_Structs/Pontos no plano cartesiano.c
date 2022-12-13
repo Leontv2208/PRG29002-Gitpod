@@ -6,33 +6,28 @@ typedef struct{
 int Quadrante;
 double Distancia;
 double Medio;
-int Valor;
-
+double Valor;
 
 } Ponto;
 
 int quadrante(double x, double y){
-
+    double q;
     if (x==0 || y==0) {
-        return 0;
+    q=0;
     } else if (x>0 && y>0) {
-    return 1;
+    q=1;
     } else if (x<0 && y>0) {
-    return 2;
-    } else if (x<0 && y>0) {
-    return 3;
+    q=2;
+    } else if (x<0 && y<0) {
+    q=3;
     } else if (x>0 && y<0) {
-    return 4;
-    }    
+    q=4;    }
+    return q;
 }
 
-double distancia(int Xa, int Xb, int Ya, int Yb){
+double distancia(double Xa, double Xb, double Ya, double Yb){
 
 double d;
-int pow, a, b;
-pow = 2;
-
-
 d = sqrt(((Xb-Xa)*(Xb-Xa))+((Yb-Ya)*(Yb-Ya))); 
 
 return d;
@@ -46,11 +41,6 @@ double ponto_medio(double A, double B){
     return media;
 }
 
-
-
-
-
-
 int main(void){
 
     Ponto x1,y1;
@@ -60,12 +50,12 @@ int main(void){
     
 
     printf("Entre com o ponto 1: ");
-    scanf("%d %d", &x1.Valor, &y1.Valor);
-
+    scanf("%lf %lf", &x1.Valor, &y1.Valor);
+    
     printf("Entre com o ponto 2: ");
-    scanf("%d %d", &x2.Valor, &y2.Valor);
+    scanf("%lf %lf", &x2.Valor, &y2.Valor);
 
-    ponto1.Quadrante = quadrante(x1.Valor,y1.Valor);
+    ponto1.Quadrante = quadrante(x1.Valor, y1.Valor);
     ponto2.Quadrante = quadrante(x2.Valor, y2.Valor);
     
     printf("Quadrante do ponto 1: %d\n", ponto1.Quadrante);
